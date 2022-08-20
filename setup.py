@@ -14,13 +14,13 @@ with open('LICENSE.md') as f:
     LICENSE = f.read()
 
 setup(
-    name='django-auth-template',
+    name='dreamlancer',
     version='0.1.0',
-    description='GA SEI Boston Django Authentication Template',
+    description='Dreamlancer standalone API',
     long_description=README,
-    author='<author>',
-    author_email='<email>',
-    url='https://github.com/WDI-SEA/django-auth-boilerplate',
+    author='Kyle',
+    author_email='ph_kyle104@yahoo.com',
+    url='https://github.com/Zene09/server-dreamlancer',
     license=LICENSE,
     packages=find_packages(exclude=('tests', 'docs'))
 )
