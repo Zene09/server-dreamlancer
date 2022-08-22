@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404
 from ..models.mango import Mango
 from ..serializers import MangoSerializer
 
+
 # Create your views here.
 class Mangos(generics.ListCreateAPIView):
     permission_classes=(IsAuthenticated,)
