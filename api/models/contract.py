@@ -40,7 +40,7 @@ class Contract(models.Model):
         'title': self.title,
         'description': self.description,
         'deadline': self.deadline,
-        'job type': self.jobtype,
+        'jobtype': self.jobtype,
         'price': self.price,
         'tags': self.tags,
         'owner': self.owner,
