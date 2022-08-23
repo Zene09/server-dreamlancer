@@ -24,7 +24,9 @@ class Contract(models.Model):
     """Returns dictionary version of Mango models"""
     return {
         'id': self.id,
-        'name': self.name,
-        'ripe': self.ripe,
-        'color': self.color
+        'title': self.title,
+        'description': self.description,
+        'deadline': self.deadline,
+        'tags': self.tags,
+        'owner': self.owner,
     }
