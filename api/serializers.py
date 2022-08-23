@@ -13,7 +13,7 @@ class MangoSerializer(serializers.ModelSerializer):
 class ContractSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contract
-        fields = ('id', 'title', 'description', 'deadline', 'tags', 'owner')
+        fields = ('id', 'title', 'description', 'deadline', 'job type', 'price', 'tags', 'owner')
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation
