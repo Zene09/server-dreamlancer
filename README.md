@@ -12,16 +12,16 @@ This repo contains the backend for project Dreamlancer. Dreamlancer aims to comb
 
 ## About the Dreamlancer API
 
-Dreamlancer is built using a boilerplate `django_auth_template` that provides user authentication, and the app *change this name later*`api`. This API will serve it's React based client: `https://github.com/Zene09/client-dreamlancer`.
+Dreamlancer is built using a boilerplate `dreamlancer` that provides user authentication, and the app *change this name later*`api`. This API will serve it's React based client: `https://github.com/Zene09/client-dreamlancer`.
 
 ### Structure
-The `django_auth_template` includes `settings.py` with settings to allow this project to run both locally and on production.
+The `dreamlancer` includes `settings.py` with settings to allow this project to run both locally and on production.
 
 The `api` app provides contains files for models and views in `api/models` and `api/views` that are utilized by `api/urls.py`.
 
 The `.env` contains the `SECRET` and database name used to run the API service locally or for development.
 
-<!-- change all instances of django_auth_template and api to our own naming conventions -->
+<!-- change all instances of dreamlancer and api to our own naming conventions -->
 
 ### Installation and commands
 
