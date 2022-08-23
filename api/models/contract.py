@@ -20,8 +20,8 @@ class Contract(models.Model):
   description = models.TextField(max_length=500)
   deadline = models.DateTimeField(auto_now=False)
   jobtype = models.CharField(max_length=2, choices=JobType.choices, default=None)
-  tags = models.CharField(max_length=100)
   price = models.CharField(max_length=8)
+  tags = models.CharField(max_length=100)
   updated_at = models.DateTimeField(auto_now=True)
   created_at = models.DateTimeField(auto_now_add=True)
   owner = models.ForeignKey(
