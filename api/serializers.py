@@ -3,6 +3,7 @@ from rest_framework import serializers
 
 from .models.mango import Mango
 from .models.contract import Contract
+from .models.bid import Bid
 from .models.user import User
 
 class MangoSerializer(serializers.ModelSerializer):
@@ -14,6 +15,11 @@ class ContractSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contract
         fields = ('id', 'title', 'description', 'deadline', 'jobtype', 'price', 'tags', 'owner')
+
+class BidSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Bid
+        fields = ('id', 'title', 'description', 'bid_amount', 'owner')
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation
