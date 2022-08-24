@@ -4,10 +4,11 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models.user import User
 from .models.mango import Mango
 from .models.contract import Contract
+from .models.bid import Bid
 
 class UserAdmin(BaseUserAdmin):
     ordering = ['id']
-    list_display = ['id', 'email', 'is_superuser', 'last_login']
+    list_display = ['id', 'email', 'name', 'is_dev', 'is_superuser', 'last_login']
     # The fieldsets are used when you edit a new user via the admin site.
     # fieldsets is a list in the form of two tuples, where each pair represents an
     # html <fieldset> on the admin page.  The tuples are in the format:
@@ -16,10 +17,11 @@ class UserAdmin(BaseUserAdmin):
     # fieldset including the list of fields.
     # Below we're saying create 4 sections, the first section has no name specified
     fieldsets = (
-      (None, {'fields': ('email', 'password')}),
+      (None, {'fields': ('email', 'name', 'password')}),
       ('Permissions',
           {
               'fields': (
+                  'is_dev',
                   'is_active',
                   'is_staff',
                   'is_superuser',
@@ -33,7 +35,7 @@ class UserAdmin(BaseUserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2')
+            'fields': ('email', 'name', 'is_dev', 'password1', 'password2')
         }),
     )
 
@@ -42,3 +44,4 @@ class UserAdmin(BaseUserAdmin):
 admin.site.register(User, UserAdmin)
 admin.site.register(Mango)
 admin.site.register(Contract)
+admin.site.register(Bid)
