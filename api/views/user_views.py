@@ -61,6 +61,8 @@ class SignIn(generics.CreateAPIView):
                     'user': {
                         'id': user.id,
                         'email': user.email,
+                        'name': user.name,
+                        'is_dev': user.is_dev,
                         'token': user.get_auth_token()
                     }
                 })
