@@ -1,10 +1,13 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
+# from api.models.contract_bid import ContractBid
+
 from .models.user import User
 from .models.mango import Mango
 from .models.contract import Contract
 from .models.bid import Bid
+from .models.contract_bid import ContractBid
 
 class UserAdmin(BaseUserAdmin):
     ordering = ['id']
@@ -45,3 +48,4 @@ admin.site.register(User, UserAdmin)
 admin.site.register(Mango)
 admin.site.register(Contract)
 admin.site.register(Bid)
+admin.site.register(ContractBid)
