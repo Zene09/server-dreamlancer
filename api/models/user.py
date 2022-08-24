@@ -14,7 +14,7 @@ class UserManager(BaseUserManager):
     #            This ensures the proper error is thrown if a password is
     #            not provided.
     # **extra_fields:  Just in case there are extra arguments passed.
-    def create_user(self, email, name=None, password=None, **extra_fields):
+    def create_user(self, email, name, password=None, **extra_fields):
         """Create a new user profile"""
         # Add a custom validation error
         if not email:
@@ -27,8 +27,8 @@ class UserManager(BaseUserManager):
         # in Python refers to the extra keyword arguments that are passed into
         # a function (meaning these are key=value pairs).
         user = self.model(email=self.normalize_email(email), **extra_fields)
-        
         # Use the set_password method to hash the password
+        user.name = name
         user.set_password(password)
         # Call save to save the user to the database
         user.save()
