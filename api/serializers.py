@@ -1,9 +1,11 @@
+from multiprocessing.dummy import JoinableQueue
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
 from .models.mango import Mango
 from .models.contract import Contract
 from .models.bid import Bid
+from .models.contract_bid import ContractBid
 from .models.user import User
 
 class MangoSerializer(serializers.ModelSerializer):
@@ -20,6 +22,13 @@ class BidSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bid
         fields = ('id', 'title', 'description', 'bid_amount', 'owner')
+
+class ContractBidSerializer(serializers.ModelSerializer):
+    contract = ContractSerializer(source='contract_id')
+    bid = BidSerializer(source='bid_id')
+    class Meta:
+        model = ContractBid
+        fields = ('contract', 'bid', 'can_bid', 'id')
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation
