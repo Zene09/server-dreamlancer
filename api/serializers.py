@@ -16,19 +16,19 @@ class MangoSerializer(serializers.ModelSerializer):
 class ContractSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contract
-        fields = ('id', 'title', 'description', 'deadline', 'jobtype', 'price', 'tags', 'owner')
+        fields = ('id', 'title', 'description', 'deadline', 'jobtype', 'price', 'can_bid', 'tags', 'owner')
 
 class BidSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bid
-        fields = ('id', 'title', 'description', 'bid_amount', 'owner')
+        fields = ('id', 'title', 'contract_ref', 'description', 'bid_amount', 'owner')
 
 class ContractBidSerializer(serializers.ModelSerializer):
     contract = ContractSerializer(source='contract_id')
     bid = BidSerializer(source='bid_id')
     class Meta:
         model = ContractBid
-        fields = ('contract', 'bid', 'can_bid', 'id')
+        fields = ('contract', 'bid', 'status', 'id')
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation

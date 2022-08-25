@@ -8,6 +8,7 @@ class Bid(models.Model):
   # define fields
   # https://docs.djangoproject.com/en/3.0/ref/models/fields/
   title = models.CharField(max_length=100)
+  contract_ref = models.CharField(max_length=20, blank=True)
   description = models.TextField(max_length=500)
   bid_amount = models.CharField(max_length=20)
   updated_at = models.DateTimeField(auto_now=True)
@@ -16,6 +17,7 @@ class Bid(models.Model):
       get_user_model(),
       on_delete=models.CASCADE
   )
+
 
   def __str__(self):
     # This must return a string
@@ -26,6 +28,7 @@ class Bid(models.Model):
     return {
         'id': self.id,
         'title': self.title,
+        'contract_ref': self.contract_ref,
         'description': self.description,
         'bid_amount': self.bid_amount,
         'owner': self.owner,

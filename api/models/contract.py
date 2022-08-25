@@ -19,8 +19,9 @@ class Contract(models.Model):
   title = models.CharField(max_length=100)
   description = models.TextField(max_length=500)
   deadline = models.DateTimeField(auto_now=False)
-  jobtype = models.CharField(max_length=2, choices=JobType.choices, default=None)
+  jobtype = models.CharField(max_length=2, choices = JobType.choices, default=None)
   price = models.CharField(max_length=8)
+  can_bid = models.BooleanField(default=False)
   tags = models.CharField(max_length=100)
   updated_at = models.DateTimeField(auto_now=True)
   created_at = models.DateTimeField(auto_now_add=True)
@@ -42,6 +43,7 @@ class Contract(models.Model):
         'deadline': self.deadline,
         'jobtype': self.jobtype,
         'price': self.price,
+        'can_bid': self.can_bid,
         'tags': self.tags,
         'owner': self.owner,
     }
