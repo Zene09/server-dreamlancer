@@ -27,8 +27,9 @@ if os.getenv('ENV') == 'development':
   DB = {
       'ENGINE': 'django.db.backends.postgresql',
       'NAME': DB_NAME,
-      'USER': 'postgres',
-      'PASSWORD': USER_PW
+    #   Enable if a Windows User
+    #   'USER': 'postgres',
+    #   'PASSWORD': USER_PW
   }
   # Set debug to true
   DEBUG = True

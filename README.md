@@ -39,6 +39,8 @@ Commands are run with the syntax `python3 manage.py <command>`:
 | `migrate`  | Run migration files to migrate changes to db  |
 | `startapp`  | Create a new app  |
 
+*Note: Windows Users will need to enable USER_PW and password for the database during development.*
+
 ### Connecting to Client
 
 This API is standalone and should be able to talk to any client. Dreamlancer uses React for it's front end, but you can use any client you would like.
@@ -125,3 +127,8 @@ This will be handled by the authentication and conditional views.
 | POST   | `/dev/create`             | `dev#create`    |
 | PATCH  | `/dev/<int:pk>/update/` | `dev#update`  |
 | DELETE | `/dev/<int:pk>/delete/`        | `dev#delete`   | -->
+## Collaborator Roles
+- Kyle Moreno: Back End Dev
+- Lyndonna Munro: Front End Dev
+- Zene Orr: Team Manager
+- Efrain Davila: Front End Dev
