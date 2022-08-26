@@ -15,9 +15,9 @@ class Bids(generics.ListCreateAPIView):
     def get(self, request):
         """Index request"""
         # Get all the bids:
-        # bids = Bid.objects.all()
+        bids = Bid.objects.all()
         # Filter the bids by owner, so you can only see your owned bids
-        bids = Bid.objects.filter(owner=request.user.id)
+        # bids = Bid.objects.filter(owner=request.user.id)
         # Run the data through the serializer
         data = BidSerializer(bids, many=True).data
         return Response({ 'bids': data })

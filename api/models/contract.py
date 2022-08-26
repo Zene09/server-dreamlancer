@@ -21,7 +21,7 @@ class Contract(models.Model):
   deadline = models.DateTimeField(auto_now=False)
   jobtype = models.CharField(max_length=2, choices = JobType.choices, default=None)
   price = models.CharField(max_length=8)
-  can_bid = models.BooleanField(default=False)
+  can_bid = models.BooleanField(default=True)
   tags = models.CharField(max_length=100)
   updated_at = models.DateTimeField(auto_now=True)
   created_at = models.DateTimeField(auto_now_add=True)
