@@ -17,7 +17,8 @@ class Contracts(generics.ListCreateAPIView):
         # Get all the contracts:
         # contracts = Contract.objects.all()
         # Filter the contracts by owner, so you can only see your owned contracts
-        contracts = Contract.objects.filter(owner=request.user.id)
+        contracts = Contract.objects.filter(can_bid=True)
+        # contracts = Contract.objects.filter(owner=request.user.id)
         # Run the data through the serializer
         data = ContractSerializer(contracts, many=True).data
         return Response({ 'contracts': data })
@@ -43,8 +44,8 @@ class ContractDetail(generics.RetrieveUpdateDestroyAPIView):
         # Locate the contract to show
         contract = get_object_or_404(Contract, pk=pk)
         # Only want to show owned contracts?
-        if request.user != contract.owner:
-            raise PermissionDenied('Unauthorized, you do not own this contract')
+        # if request.user != contract.owner:
+        #     raise PermissionDenied('Unauthorized, you do not own this contract')
 
         # Run the data through the serializer so it's formatted
         data = ContractSerializer(contract).data
@@ -57,7 +58,7 @@ class ContractDetail(generics.RetrieveUpdateDestroyAPIView):
         # Check the contract's owner against the user making this request
         if request.user != contract.owner:
             raise PermissionDenied('Unauthorized, you do not own this contract')
-        # Only delete if the user owns the  contract
+        # Only delete if the user owns the contract
         contract.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
