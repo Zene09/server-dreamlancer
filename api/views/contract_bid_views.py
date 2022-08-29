@@ -56,8 +56,8 @@ class ContractBidDetail(generics.RetrieveUpdateDestroyAPIView):
         # Locate contract_bid to delete
         contract_bid = get_object_or_404(ContractBid, pk=pk)
         # Check the contract_bid's owner against the user making this request
-        if request.user != contract_bid.owner:
-            raise PermissionDenied('Unauthorized, you do not own this contract_bid')
+        # if request.user != contract_bid.owner:
+        #     raise PermissionDenied('Unauthorized, you do not own this contract_bid')
         # Only delete if the user owns the contract_bid
         contract_bid.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
