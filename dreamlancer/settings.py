@@ -28,8 +28,8 @@ if os.getenv('ENV') == 'development':
       'ENGINE': 'django.db.backends.postgresql',
       'NAME': DB_NAME,
     #   Enable if a Windows User
-    #   'USER': 'postgres',
-    #   'PASSWORD': USER_PW
+      'USER': 'postgres',
+      'PASSWORD': USER_PW
   }
   # Set debug to true
   DEBUG = True

@@ -23,12 +23,18 @@ class BidSerializer(serializers.ModelSerializer):
         model = Bid
         fields = ('id', 'title', 'contract_ref', 'description', 'bid_amount', 'owner')
 
+class SpecialContractBidSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContractBid
+        fields = ('__all__')
+
 class ContractBidSerializer(serializers.ModelSerializer):
     contract = ContractSerializer(source='contract_id')
     bid = BidSerializer(source='bid_id')
     class Meta:
         model = ContractBid
-        fields = ('contract', 'bid', 'status', 'id')
+        fields = ('id', 'contract', 'bid', 'status')
+
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation
