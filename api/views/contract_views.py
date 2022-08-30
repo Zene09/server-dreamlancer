@@ -75,6 +75,7 @@ class ContractDetail(generics.RetrieveUpdateDestroyAPIView):
         request.data['contract']['owner'] = request.user.id
         # Validate updates with serializer
         data = ContractSerializer(contract, data=request.data['contract'], partial=True)
+        print(data)
         if data.is_valid():
             # Save & send a 204 no content
             data.save()
