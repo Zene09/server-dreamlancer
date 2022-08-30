@@ -28,7 +28,7 @@ class ContractBids(generics.ListCreateAPIView):
         # Add user to request data object
         request.data['owner'] = request.user.id
         # Serialize/create contract_bid
-        contract_bid = SpecialContractBidSerializer(data=request.data)
+        contract_bid = SpecialContractBidSerializer(data=request.data['contract_data'])
         # If the contract_bid data is valid according to our serializer...
         if contract_bid.is_valid():
             # Save the created contract_bid & send a response
