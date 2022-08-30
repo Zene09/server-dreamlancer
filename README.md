@@ -45,6 +45,8 @@ Commands are run with the syntax `python3 manage.py <command>`:
 
 This API is standalone and should be able to talk to any client. Dreamlancer uses React for it's front end, but you can use any client you would like.
 
+Original Client Repo: https://github.com/Zene09/client-dreamlancer
+
 ### Port
 
 The django template uses port `8000` by default, this server location is `http://127.0.0.1:8000/`
