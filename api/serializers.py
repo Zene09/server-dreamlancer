@@ -14,7 +14,6 @@ class MangoSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'color', 'ripe', 'owner')
 
 class ContractSerializer(serializers.ModelSerializer):
-    deadline = serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
     class Meta:
         model = Contract
         fields = ('id', 'title', 'description', 'deadline', 'jobtype', 'price', 'can_bid', 'tags', 'owner')
