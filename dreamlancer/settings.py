@@ -34,7 +34,9 @@ if os.getenv('ENV') == 'development':
   # Set debug to true
   DEBUG = True
   # Only allow locally running client at port 3000 for CORS
-  CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
+  CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000'
+    )
 else:
   # If we are on production, use the dj_database_url package
   # to locate the database based on Heroku setup
@@ -42,9 +44,9 @@ else:
   # Set debug to false
   DEBUG = False
   # Only allow the `CLIENT_ORIGIN` for CORS
-  CORS_ORIGIN_WHITELIST = [
+  CORS_ORIGIN_WHITELIST = (
     os.getenv('CLIENT_ORIGIN')
-  ]
+  )
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
